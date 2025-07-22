@@ -30,8 +30,14 @@ public class AuthorsController {
     }
 
     @PutMapping("/{authorId}")
+    public Author findAuthorByIdAndUpdate(@PathVariable int authorId,@RequestBody NewAuthorPayload body){
+         return this.authorsService.findByIdAndUpdate(authorId,body);
+    }
+
+    @DeleteMapping("/{authorId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void findAuthorByIdAndUpdate(@PathVariable int authorId){
-        this.authorsService.find
+    public void findAuthorByIdAndDelete(@PathVariable int authorId)
+    {
+        this.authorsService.findByIdAndDelete(authorId);
     }
 }
