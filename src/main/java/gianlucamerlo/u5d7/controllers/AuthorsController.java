@@ -1,6 +1,7 @@
 package gianlucamerlo.u5d7.controllers;
 
 import gianlucamerlo.u5d7.entities.Author;
+import gianlucamerlo.u5d7.payloads.NewAuthorPayload;
 import gianlucamerlo.u5d7.services.AuthorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -38,5 +38,32 @@ public class AuthorsService {
                 return found;
     }
 
+    public Author findByIdAndUpdate(int authorId,NewAuthorPayload payload){
+        Author found =null;
+        for(Author author:this.authorsDB)
+        {
+            if(author.getId()==authorId){
+                found=author;
+                found.setNome(payload.getNome());
+                found.setCognome(payload.getCognome());
+                found.setEmail(payload.getEmail());
+                found.setDataDiNascita(payload.getDataDiNascita());
+            }
+        }
+        if (found==null) throw new NotFoundException(authorId);
+        return found;
+    }
+
+    public void findByIdAndDelete(int authorId){
+        Author found=null;
+        for(Author author:this.authorsDB)
+        {
+            if(author.getId()==authorId) found=author;
+        }
+
+        if (found==null) throw new NotFoundException(authorId);
+        this.authorsDB.remove(found);
+    }
+
 
 }
